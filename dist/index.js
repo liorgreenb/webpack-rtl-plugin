@@ -61,22 +61,22 @@ WebpackRTLPlugin.prototype.apply = function (compiler) {
 
             if (/\[contenthash]/.test(_this.options.filename)) {
               var hash = (0, _crypto.createHash)('md5').update(rtlSource).digest('hex').substr(0, 10);
-              filename = filename.replace('[contenthash]', hash);
+              filename = filename.replace(/[contenthash]/g, hash);
             }
             if (/\[id]/.test(_this.options.filename)) {
-              filename = filename.replace('[id]', chunk.id);
+              filename = filename.replace(/[id]/g, chunk.id);
             }
             if (/\[name]/.test(_this.options.filename)) {
-              filename = filename.replace('[name]', chunk.name);
+              filename = filename.replace(/[name]/g, chunk.name);
             }
             if (/\[file]/.test(_this.options.filename)) {
-              filename = filename.replace('[file]', asset);
+              filename = filename.replace(/[file]/g, asset);
             }
             if (/\[filebase]/.test(_this.options.filename)) {
-              filename = filename.replace('[filebase]', _path2.default.basename(asset));
+              filename = filename.replace(/[filebase]/g, _path2.default.basename(asset));
             }
             if (/\[ext]/.test(_this.options.filename)) {
-              filename = filename.replace('.[ext]', _path2.default.extname(asset));
+              filename = filename.replace(/[ext]/g, _path2.default.extname(asset));
             }
           } else {
             var newFilename = _path2.default.basename(asset, '.css') + '.rtl';
