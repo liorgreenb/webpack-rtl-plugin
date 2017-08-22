@@ -88,6 +88,8 @@ WebpackRTLPlugin.prototype.apply = function (compiler) {
           }
         }
 
+        console.log(filename);
+
         if (_this.options.minify !== false) {
           var nanoOptions = {};
           if (_typeof(_this.options.minify) === 'object') {
