@@ -38,22 +38,22 @@ WebpackRTLPlugin.prototype.apply = function(compiler) {
 
             if (/\[contenthash]/.test(this.options.filename)) {
               const hash = createHash('md5').update(rtlSource).digest('hex').substr(0, 10)
-              filename = filename.replace(/[contenthash]/g, hash)
+              filename = filename.replace(/\[contenthash\]/g, hash)
             }
             if (/\[id]/.test(this.options.filename)) {
-              filename = filename.replace(/[id]/g, chunk.id)
+              filename = filename.replace(/\[id\]/g, chunk.id)
             }
             if (/\[name]/.test(this.options.filename)) {
-              filename = filename.replace(/[name]/g, chunk.name)
+              filename = filename.replace(/\[name\]/g, chunk.name)
             }
             if (/\[file]/.test(this.options.filename)) {
-              filename = filename.replace(/[file]/g, asset)
+              filename = filename.replace(/\[file\]/g, asset)
             }
             if (/\[filebase]/.test(this.options.filename)) {
-              filename = filename.replace(/[filebase]/g, path.basename(asset))
+              filename = filename.replace(/\[filebase\]/g, path.basename(asset))
             }
             if (/\[ext]/.test(this.options.filename)) {
-              filename = filename.replace(/[ext]/g, path.extname(asset))
+              filename = filename.replace(/\[ext\]/g, path.extname(asset))
             }
           }
           else {
